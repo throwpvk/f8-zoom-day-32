@@ -953,17 +953,12 @@ const newFolderMenu = document.getElementById("newFolderMenu");
 const renameMenu = document.getElementById("renameMenu");
 const deleteMenu = document.getElementById("deleteMenu");
 
-// Modal buttons
-const confirmRenameBtn = document.getElementById("confirmRename");
-const cancelRenameBtn = document.getElementById("cancelRename");
-
-// Utility functions
-// Lấy phần mở rộng (đuôi) của tên file, ví dụ: 'txt', 'jpg', 'js'
+// Hàn lấy phần mở rộng (đuôi) của tên file, ví dụ: 'txt', 'jpg', 'js'
 function getFileExtension(filename) {
   return filename.split(".").pop().toLowerCase();
 }
 
-// Lấy icon phù hợp cho từng loại file để hiển thị trong cây thư mục
+// Hàm lấy icon phù hợp cho từng loại file để hiển thị trong cây thư mục
 function getFileIcon(filename) {
   const extension = getFileExtension(filename);
   const iconMap = {
@@ -992,7 +987,7 @@ function getFileIcon(filename) {
   return iconMap[extension] || "fa-solid fa-file";
 }
 
-// Chọn chế độ (mode) cho CodeMirror dựa vào loại file (html, css, js, ...)
+// Hàm chọn chế độ (mode) cho CodeMirror dựa vào loại file (html, css, js, ...)
 function getCodeMirrorMode(filename) {
   const extension = getFileExtension(filename);
   const modeMap = {
@@ -1007,6 +1002,7 @@ function getCodeMirrorMode(filename) {
   return modeMap[extension] || "text/plain";
 }
 
+// Sử dụng đệ quy để tìm id của con
 // Tìm và trả về file hoặc thư mục theo id (đệ quy toàn bộ cây)
 function findFileById(id, node = fileSystem) {
   if (node.id === id) return node;
@@ -1019,6 +1015,7 @@ function findFileById(id, node = fileSystem) {
   return null;
 }
 
+// Sử dụng đệ quy để tìm id của cha
 // Tìm và trả về thư mục cha của một file/thư mục theo id
 function findParentById(id, node = fileSystem, parent = null) {
   if (node.children) {
@@ -1031,6 +1028,7 @@ function findParentById(id, node = fileSystem, parent = null) {
   return null;
 }
 
+// Sử dụng đệ quy để render thư mục đa cấp
 // Vẽ cây thư mục và file ra giao diện (đệ quy cho mọi cấp)
 function renderFileTree(node = fileSystem) {
   const li = document.createElement("li");
@@ -1271,6 +1269,8 @@ function refreshFileTree() {
   fileTree.appendChild(rootUl);
 }
 
+// Hàm xử lý đổi tên file/thư mục
+// Đổi span name thành input để nhập tên, khi submit thì đổi tên
 function activateRenameMode(li, node) {
   const nameSpan = li.querySelector(".name");
   const oldName = node.name;
@@ -1279,12 +1279,13 @@ function activateRenameMode(li, node) {
   input.type = "text";
   input.value = oldName;
   input.className = "rename-input";
-  // input.style.width = "100%";
 
   nameSpan.replaceWith(input);
   input.focus();
   input.select();
 
+  // Khi kết thúc, blur input thì thực hiện đổi tên nếu tên mới hợp kệ và khác tên cũ
+  // TODO: kiểm tra xem có trùng tên với file khác trong cùng thư mục hay không?
   const finishRename = () => {
     const newName = input.value.trim();
     if (newName && newName !== oldName) {
@@ -1302,6 +1303,7 @@ function activateRenameMode(li, node) {
   input.addEventListener("blur", finishRename);
 }
 
+// Event
 // Khi có sự kiện click thì ẩn context menu
 document.addEventListener("click", hideContextMenu);
 
@@ -1366,26 +1368,6 @@ deleteMenu.addEventListener("click", () => {
     deleteItem(selectedItem.id);
   }
   hideContextMenu();
-});
-
-// Modal events
-confirmRenameBtn.addEventListener("click", () => {
-  if (selectedItem && renameInput.value.trim()) {
-    renameItem(selectedItem.id, renameInput.value.trim());
-    renameModal.style.display = "none";
-  }
-});
-
-// Sự kiện hủy đổi tên
-cancelRenameBtn.addEventListener("click", () => {
-  renameModal.style.display = "none";
-});
-
-// Ẩn modal
-window.addEventListener("click", (e) => {
-  if (e.target === renameModal) {
-    renameModal.style.display = "none";
-  }
 });
 
 // cập nhật preview khi có thay đổi trong editor
