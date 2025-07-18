@@ -262,64 +262,88 @@ function renderFileTree(node = fileSystem) {
 
 // Khi click chọn file, hiển thị nội dung file lên editor và preview
 function selectFile(file) {
-  // Xóa hiển thị file cũ
+  // Bỏ chọn cũ
   document.querySelectorAll(".file-item.selected").forEach((item) => {
     item.classList.remove("selected");
   });
 
-  // Thêm class selected để cập nhật ui
   const item = document.querySelector(`[data-id="${file.id}"]`);
   if (item) {
     item.classList.add("selected");
   }
 
-  // Kiểm tra xem có phải là file không, nếu là file thì sẽ có content và không có childrent
-  if (file.content) {
+  if (file.content != null) {
     currentFile = file;
     currentFileName.textContent = file.name;
+    editor.setValue(file.content || "");
+    editor.setOption("mode", getCodeMirrorMode(file.name));
 
-    // Kiểm tra xem có phải là file ảnh không
-    const imageExtensions = ["png", "jpg", "jpeg", "gif", "svg", "webp", "bmp"];
-    const isImage = imageExtensions.includes(getFileExtension(file.name));
-
-    if (isImage) {
-      // Nếu là file ảnh, hiển thị ảnh lên preview, hiển thị đường dẫn vào editor, có thể thay đổi đường dẫn trong editor
-      editor.setValue(file.content || "");
-      editor.setOption("mode", "text/plain");
-      previewFrame.srcdoc = `
-        <html>
-        <head>
-        <title>${file.name}</title>
-        <style>
-        .image-preview {
-          max-width: 90%;
-          height: auto;
-          display: block;
-          margin: 20px auto; 
-        }
-        </style>
-        </head>
-        <body style='margin:0;padding:0;text-align:center;'>
-          <img class="image-preview" src="${file.content}" alt="${file.name}">
-        </body>
-        </html>
-      `;
-    } else {
-      // Nếu là file text, hiển thị trong editor
-      editor.setValue(file.content || "");
-      editor.setOption("mode", getCodeMirrorMode(file.name));
-
-      // Cập nhật preview cho HTML
-      if (getFileExtension(file.name) === "html") {
-        updatePreview();
-      } else {
-        previewFrame.srcdoc = `<pre style="padding: 0 10px; font-family: monospace; margin: 0; white-space: pre-wrap; word-break: break-word;">${
-          file.content || ""
-        }</pre>`;
-      }
-    }
-    // TODO: làm thêm preview cho audio, video, ...
+    updatePreview();
   }
+}
+
+// Cập nhật khung xem trước (preview), chủ yếu cho file HTML
+function updatePreview() {
+  if (!currentFile) return;
+
+  const ext = getFileExtension(currentFile.name);
+  const content = currentFile.content || "";
+
+  // Cấu hình lại mode cho editor (text, html...)
+  editor.setOption("mode", getCodeMirrorMode(currentFile.name));
+
+  // Loại ảnh
+  const imageTypes = ["png", "jpg", "jpeg", "gif", "svg", "webp", "bmp"];
+  if (imageTypes.includes(ext)) {
+    previewFrame.srcdoc = `
+      <html><body style="margin:0;text-align:center;">
+        <img src="${content}" alt="${currentFile.name}" style="max-width: 90%; margin: 20px auto;" />
+      </body></html>
+    `;
+    return;
+  }
+
+  // Loại video
+  const videoTypes = ["mp4", "webm", "ogg"];
+  if (videoTypes.includes(ext)) {
+    previewFrame.srcdoc = `
+      <html><body style="margin:0;text-align:center;">
+        <video controls style="max-width: 90%; margin: 20px auto;">
+          <source src="${content}" type="video/${ext}">
+        </video>
+      </body></html>
+    `;
+    return;
+  }
+
+  // Loại audio
+  const audioTypes = ["mp3", "wav", "ogg"];
+  if (audioTypes.includes(ext)) {
+    previewFrame.srcdoc = `
+      <html><body style="margin:20px;text-align:center;">
+        <audio controls>
+          <source src="${content}" type="audio/${ext}">
+        </audio>
+      </body></html>
+    `;
+    return;
+  }
+
+  // HTML – chạy trực tiếp
+  if (ext === "html") {
+    previewFrame.srcdoc = content;
+    return;
+  }
+
+  // Text/code mặc định
+  previewFrame.srcdoc = `
+    <pre style="padding: 10px; font-family: monospace; margin: 0; white-space: pre-wrap; word-break: break-word;">
+${content.replace(
+  /[<>&]/g,
+  (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" }[c])
+)}
+    </pre>
+  `;
 }
 
 // Hàm toggle thư mục
@@ -360,13 +384,6 @@ function showContextMenu(e) {
 // Ẩn menu chuột phải
 function hideContextMenu() {
   customMenu.style.display = "none";
-}
-
-// Cập nhật khung xem trước (preview), chủ yếu cho file HTML
-function updatePreview() {
-  if (currentFile && getFileExtension(currentFile.name) === "html") {
-    previewFrame.srcdoc = editor.getValue();
-  }
 }
 
 // Tạo file mới trong thư mục cha có id là parentId
@@ -486,6 +503,8 @@ function activateRenameMode(li, node) {
     } else {
       refreshFileTree();
     }
+    // Cập nhật lại preview
+    updatePreview();
   };
 
   input.addEventListener("keydown", (e) => {
@@ -630,11 +649,12 @@ deleteMenu.addEventListener("click", () => {
   hideContextMenu();
 });
 
-// cập nhật preview khi có thay đổi trong editor
+// cập nhật preview khi có thay đổi trong editor, và tự động lưu
 editor.on("change", () => {
   if (currentFile) {
     currentFile.content = editor.getValue();
     updatePreview();
+    updateFileSystem();
   }
 });
 
