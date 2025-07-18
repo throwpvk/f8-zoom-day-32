@@ -518,7 +518,13 @@ function activateRenameMode(li, node) {
 // Hàm cập nhật header theo tên của item đang select
 function updateHeaderText() {
   header.innerHTML = '<i class="fa-solid fa-folder"></i>';
-  header.innerHTML += selectedItem?.name ? selectedItem.name : "Explore";
+  let folderName = "";
+  if (selectedItem && selectedItem.children) {
+    folderName = selectedItem.name;
+  } else {
+    folderName = findParentById(selectedItem.id).name;
+  }
+  header.innerHTML += folderName ? folderName : "Explore";
 }
 
 // Hàm tạo file mới
