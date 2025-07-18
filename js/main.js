@@ -592,7 +592,7 @@ function newFolderHandle() {
 // Event
 // Khi có sự kiện click thì ẩn context menu
 document.addEventListener("click", () => {
-  hideContextMenu;
+  hideContextMenu();
 });
 
 // Khi nhấn vào cùng bên ngoài thì selec root
