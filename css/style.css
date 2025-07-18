@@ -34,13 +34,13 @@ body {
 }
 
 .explorer-pane {
-  flex-basis: 20%;
+  flex-basis: 35%;
 }
 .editor-pane {
-  flex-basis: 40%;
+  flex-basis: 35%;
 }
 .preview-pane {
-  flex-basis: 40%;
+  flex-basis: 30%;
 }
 
 .header {
@@ -133,7 +133,7 @@ body {
   text-align: center;
   font-size: 10px;
   color: #888888;
-  margin-right: 2px;
+  margin-right: 0px;
   transition: transform 0.15s ease;
 }
 
@@ -147,9 +147,6 @@ body {
   height: 100%;
 }
 
-.file-item.folder {
-  /* font-weight: 500; */
-}
 .file-item.selected {
   background: #7c7c7c;
   color: #fff;
@@ -157,9 +154,7 @@ body {
 .file-item.selected .chevron {
   color: #fff;
 }
-.file-item:hover:not(.selected) {
-  /* background: #333; */
-}
+
 .file-item:hover:not(.selected):not(.folder) {
   background: #222;
   border-radius: 6px;
@@ -220,10 +215,16 @@ body {
   color: #fd7e14;
 }
 .file-item i.fa-music {
-  color: #6f42c1;
+  color: #1da1f2;
 }
 .file-item i.fa-video {
   color: #e83e8c;
+}
+.file-item i.fa-file {
+  color: #888888;
+}
+.file-item i.fa-clapperboard {
+  color: #f27474;
 }
 
 .preview-pane {

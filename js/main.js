@@ -14,927 +14,58 @@ editor.setSize("100%", "100%");
 let fileSystem = {
   id: 1,
   name: "root",
-  children: [
-    {
-      id: 2,
-      name: "folder_1",
-      children: [
-        {
-          id: 3,
-          name: "folder_1_sub_1",
-          children: [
-            {
-              id: 4,
-              name: "file_1_1.txt",
-              content: "This is the content of file_1_1.txt",
-            },
-            {
-              id: 5,
-              name: "image_1_1.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-        {
-          id: 6,
-          name: "folder_1_sub_2",
-          children: [
-            {
-              id: 7,
-              name: "file_1_2.txt",
-              content: "This is the content of file_1_2.txt",
-            },
-            {
-              id: 8,
-              name: "image_1_2.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-        {
-          id: 9,
-          name: "folder_1_sub_3",
-          children: [
-            {
-              id: 10,
-              name: "file_1_3.txt",
-              content: "This is the content of file_1_3.txt",
-            },
-            {
-              id: 11,
-              name: "image_1_3.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-        {
-          id: 12,
-          name: "folder_1_sub_4",
-          children: [
-            {
-              id: 13,
-              name: "file_1_4.txt",
-              content: "This is the content of file_1_4.txt",
-            },
-            {
-              id: 14,
-              name: "image_1_4.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-        {
-          id: 15,
-          name: "folder_1_sub_5",
-          children: [
-            {
-              id: 16,
-              name: "file_1_5.txt",
-              content: "This is the content of file_1_5.txt",
-            },
-            {
-              id: 17,
-              name: "image_1_5.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-      ],
-    },
-    {
-      id: 18,
-      name: "folder_2",
-      children: [
-        {
-          id: 19,
-          name: "folder_2_sub_1",
-          children: [
-            {
-              id: 20,
-              name: "file_2_1.txt",
-              content: "This is the content of file_2_1.txt",
-            },
-            {
-              id: 21,
-              name: "image_2_1.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-        {
-          id: 22,
-          name: "folder_2_sub_2",
-          children: [
-            {
-              id: 23,
-              name: "file_2_2.txt",
-              content: "This is the content of file_2_2.txt",
-            },
-            {
-              id: 24,
-              name: "image_2_2.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-        {
-          id: 25,
-          name: "folder_2_sub_3",
-          children: [
-            {
-              id: 26,
-              name: "file_2_3.txt",
-              content: "This is the content of file_2_3.txt",
-            },
-            {
-              id: 27,
-              name: "image_2_3.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-        {
-          id: 28,
-          name: "folder_2_sub_4",
-          children: [
-            {
-              id: 29,
-              name: "file_2_4.txt",
-              content: "This is the content of file_2_4.txt",
-            },
-            {
-              id: 30,
-              name: "image_2_4.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-        {
-          id: 31,
-          name: "folder_2_sub_5",
-          children: [
-            {
-              id: 32,
-              name: "file_2_5.txt",
-              content: "This is the content of file_2_5.txt",
-            },
-            {
-              id: 33,
-              name: "image_2_5.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-      ],
-    },
-    {
-      id: 34,
-      name: "folder_3",
-      children: [
-        {
-          id: 35,
-          name: "folder_3_sub_1",
-          children: [
-            {
-              id: 36,
-              name: "file_3_1.txt",
-              content: "This is the content of file_3_1.txt",
-            },
-            {
-              id: 37,
-              name: "image_3_1.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-        {
-          id: 38,
-          name: "folder_3_sub_2",
-          children: [
-            {
-              id: 39,
-              name: "file_3_2.txt",
-              content: "This is the content of file_3_2.txt",
-            },
-            {
-              id: 40,
-              name: "image_3_2.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-        {
-          id: 41,
-          name: "folder_3_sub_3",
-          children: [
-            {
-              id: 42,
-              name: "file_3_3.txt",
-              content: "This is the content of file_3_3.txt",
-            },
-            {
-              id: 43,
-              name: "image_3_3.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-        {
-          id: 44,
-          name: "folder_3_sub_4",
-          children: [
-            {
-              id: 45,
-              name: "file_3_4.txt",
-              content: "This is the content of file_3_4.txt",
-            },
-            {
-              id: 46,
-              name: "image_3_4.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-        {
-          id: 47,
-          name: "folder_3_sub_5",
-          children: [
-            {
-              id: 48,
-              name: "file_3_5.txt",
-              content: "This is the content of file_3_5.txt",
-            },
-            {
-              id: 49,
-              name: "image_3_5.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-      ],
-    },
-    {
-      id: 50,
-      name: "folder_4",
-      children: [
-        {
-          id: 51,
-          name: "folder_4_sub_1",
-          children: [
-            {
-              id: 52,
-              name: "file_4_1.txt",
-              content: "This is the content of file_4_1.txt",
-            },
-            {
-              id: 53,
-              name: "image_4_1.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-        {
-          id: 54,
-          name: "folder_4_sub_2",
-          children: [
-            {
-              id: 55,
-              name: "file_4_2.txt",
-              content: "This is the content of file_4_2.txt",
-            },
-            {
-              id: 56,
-              name: "image_4_2.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-        {
-          id: 57,
-          name: "folder_4_sub_3",
-          children: [
-            {
-              id: 58,
-              name: "file_4_3.txt",
-              content: "This is the content of file_4_3.txt",
-            },
-            {
-              id: 59,
-              name: "image_4_3.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-        {
-          id: 60,
-          name: "folder_4_sub_4",
-          children: [
-            {
-              id: 61,
-              name: "file_4_4.txt",
-              content: "This is the content of file_4_4.txt",
-            },
-            {
-              id: 62,
-              name: "image_4_4.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-        {
-          id: 63,
-          name: "folder_4_sub_5",
-          children: [
-            {
-              id: 64,
-              name: "file_4_5.txt",
-              content: "This is the content of file_4_5.txt",
-            },
-            {
-              id: 65,
-              name: "image_4_5.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-      ],
-    },
-    {
-      id: 66,
-      name: "folder_5",
-      children: [
-        {
-          id: 67,
-          name: "folder_5_sub_1",
-          children: [
-            {
-              id: 68,
-              name: "file_5_1.txt",
-              content: "This is the content of file_5_1.txt",
-            },
-            {
-              id: 69,
-              name: "image_5_1.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-        {
-          id: 70,
-          name: "folder_5_sub_2",
-          children: [
-            {
-              id: 71,
-              name: "file_5_2.txt",
-              content: "This is the content of file_5_2.txt",
-            },
-            {
-              id: 72,
-              name: "image_5_2.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-        {
-          id: 73,
-          name: "folder_5_sub_3",
-          children: [
-            {
-              id: 74,
-              name: "file_5_3.txt",
-              content: "This is the content of file_5_3.txt",
-            },
-            {
-              id: 75,
-              name: "image_5_3.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-        {
-          id: 76,
-          name: "folder_5_sub_4",
-          children: [
-            {
-              id: 77,
-              name: "file_5_4.txt",
-              content: "This is the content of file_5_4.txt",
-            },
-            {
-              id: 78,
-              name: "image_5_4.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-        {
-          id: 79,
-          name: "folder_5_sub_5",
-          children: [
-            {
-              id: 80,
-              name: "file_5_5.txt",
-              content: "This is the content of file_5_5.txt",
-            },
-            {
-              id: 81,
-              name: "image_5_5.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-      ],
-    },
-    {
-      id: 82,
-      name: "folder_6",
-      children: [
-        {
-          id: 83,
-          name: "folder_6_sub_1",
-          children: [
-            {
-              id: 84,
-              name: "file_6_1.txt",
-              content: "This is the content of file_6_1.txt",
-            },
-            {
-              id: 85,
-              name: "image_6_1.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-        {
-          id: 86,
-          name: "folder_6_sub_2",
-          children: [
-            {
-              id: 87,
-              name: "file_6_2.txt",
-              content: "This is the content of file_6_2.txt",
-            },
-            {
-              id: 88,
-              name: "image_6_2.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-        {
-          id: 89,
-          name: "folder_6_sub_3",
-          children: [
-            {
-              id: 90,
-              name: "file_6_3.txt",
-              content: "This is the content of file_6_3.txt",
-            },
-            {
-              id: 91,
-              name: "image_6_3.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-        {
-          id: 92,
-          name: "folder_6_sub_4",
-          children: [
-            {
-              id: 93,
-              name: "file_6_4.txt",
-              content: "This is the content of file_6_4.txt",
-            },
-            {
-              id: 94,
-              name: "image_6_4.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-        {
-          id: 95,
-          name: "folder_6_sub_5",
-          children: [
-            {
-              id: 96,
-              name: "file_6_5.txt",
-              content: "This is the content of file_6_5.txt",
-            },
-            {
-              id: 97,
-              name: "image_6_5.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-      ],
-    },
-    {
-      id: 98,
-      name: "folder_7",
-      children: [
-        {
-          id: 99,
-          name: "folder_7_sub_1",
-          children: [
-            {
-              id: 100,
-              name: "file_7_1.txt",
-              content: "This is the content of file_7_1.txt",
-            },
-            {
-              id: 101,
-              name: "image_7_1.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-        {
-          id: 102,
-          name: "folder_7_sub_2",
-          children: [
-            {
-              id: 103,
-              name: "file_7_2.txt",
-              content: "This is the content of file_7_2.txt",
-            },
-            {
-              id: 104,
-              name: "image_7_2.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-        {
-          id: 105,
-          name: "folder_7_sub_3",
-          children: [
-            {
-              id: 106,
-              name: "file_7_3.txt",
-              content: "This is the content of file_7_3.txt",
-            },
-            {
-              id: 107,
-              name: "image_7_3.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-        {
-          id: 108,
-          name: "folder_7_sub_4",
-          children: [
-            {
-              id: 109,
-              name: "file_7_4.txt",
-              content: "This is the content of file_7_4.txt",
-            },
-            {
-              id: 110,
-              name: "image_7_4.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-        {
-          id: 111,
-          name: "folder_7_sub_5",
-          children: [
-            {
-              id: 112,
-              name: "file_7_5.txt",
-              content: "This is the content of file_7_5.txt",
-            },
-            {
-              id: 113,
-              name: "image_7_5.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-      ],
-    },
-    {
-      id: 114,
-      name: "folder_8",
-      children: [
-        {
-          id: 115,
-          name: "folder_8_sub_1",
-          children: [
-            {
-              id: 116,
-              name: "file_8_1.txt",
-              content: "This is the content of file_8_1.txt",
-            },
-            {
-              id: 117,
-              name: "image_8_1.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-        {
-          id: 118,
-          name: "folder_8_sub_2",
-          children: [
-            {
-              id: 119,
-              name: "file_8_2.txt",
-              content: "This is the content of file_8_2.txt",
-            },
-            {
-              id: 120,
-              name: "image_8_2.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-        {
-          id: 121,
-          name: "folder_8_sub_3",
-          children: [
-            {
-              id: 122,
-              name: "file_8_3.txt",
-              content: "This is the content of file_8_3.txt",
-            },
-            {
-              id: 123,
-              name: "image_8_3.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-        {
-          id: 124,
-          name: "folder_8_sub_4",
-          children: [
-            {
-              id: 125,
-              name: "file_8_4.txt",
-              content: "This is the content of file_8_4.txt",
-            },
-            {
-              id: 126,
-              name: "image_8_4.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-        {
-          id: 127,
-          name: "folder_8_sub_5",
-          children: [
-            {
-              id: 128,
-              name: "file_8_5.txt",
-              content: "This is the content of file_8_5.txt",
-            },
-            {
-              id: 129,
-              name: "image_8_5.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-      ],
-    },
-    {
-      id: 130,
-      name: "folder_9",
-      children: [
-        {
-          id: 131,
-          name: "folder_9_sub_1",
-          children: [
-            {
-              id: 132,
-              name: "file_9_1.txt",
-              content: "This is the content of file_9_1.txt",
-            },
-            {
-              id: 133,
-              name: "image_9_1.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-        {
-          id: 134,
-          name: "folder_9_sub_2",
-          children: [
-            {
-              id: 135,
-              name: "file_9_2.txt",
-              content: "This is the content of file_9_2.txt",
-            },
-            {
-              id: 136,
-              name: "image_9_2.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-        {
-          id: 137,
-          name: "folder_9_sub_3",
-          children: [
-            {
-              id: 138,
-              name: "file_9_3.txt",
-              content: "This is the content of file_9_3.txt",
-            },
-            {
-              id: 139,
-              name: "image_9_3.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-        {
-          id: 140,
-          name: "folder_9_sub_4",
-          children: [
-            {
-              id: 141,
-              name: "file_9_4.txt",
-              content: "This is the content of file_9_4.txt",
-            },
-            {
-              id: 142,
-              name: "image_9_4.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-        {
-          id: 143,
-          name: "folder_9_sub_5",
-          children: [
-            {
-              id: 144,
-              name: "file_9_5.txt",
-              content: "This is the content of file_9_5.txt",
-            },
-            {
-              id: 145,
-              name: "image_9_5.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-      ],
-    },
-    {
-      id: 146,
-      name: "folder_10",
-      children: [
-        {
-          id: 147,
-          name: "folder_10_sub_1",
-          children: [
-            {
-              id: 148,
-              name: "file_10_1.txt",
-              content: "This is the content of file_10_1.txt",
-            },
-            {
-              id: 149,
-              name: "image_10_1.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-        {
-          id: 150,
-          name: "folder_10_sub_2",
-          children: [
-            {
-              id: 151,
-              name: "file_10_2.txt",
-              content: "This is the content of file_10_2.txt",
-            },
-            {
-              id: 152,
-              name: "image_10_2.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-        {
-          id: 153,
-          name: "folder_10_sub_3",
-          children: [
-            {
-              id: 154,
-              name: "file_10_3.txt",
-              content: "This is the content of file_10_3.txt",
-            },
-            {
-              id: 155,
-              name: "image_10_3.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-        {
-          id: 156,
-          name: "folder_10_sub_4",
-          children: [
-            {
-              id: 157,
-              name: "file_10_4.txt",
-              content: "This is the content of file_10_4.txt",
-            },
-            {
-              id: 158,
-              name: "image_10_4.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-        {
-          id: 159,
-          name: "folder_10_sub_5",
-          children: [
-            {
-              id: 160,
-              name: "file_10_5.txt",
-              content: "This is the content of file_10_5.txt",
-            },
-            {
-              id: 161,
-              name: "image_10_5.jpg",
-              content:
-                "https://cdn.shopify.com/s/files/1/1083/2612/files/hd4_480x480.jpg?v=1739170015",
-            },
-          ],
-        },
-      ],
-    },
-  ],
+  children: [],
 };
+
+// GET dữ liệu từ json-server
+async function fetchFileSystem() {
+  try {
+    const res = await fetch("https://json-server-j1up.onrender.com/fileSystem");
+    if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+    fileSystem = await res.json();
+  } catch (error) {
+    console.error("Lỗi fetch fileSystem:", error);
+  } finally {
+    refreshFileTree(false);
+    updateHeaderText();
+  }
+}
+
+// Update dữ liệu json-server
+async function updateFileSystem() {
+  if (!fileSystem) {
+    console.warn("Không có dữ liệu fileSystem để cập nhật");
+    return;
+  }
+
+  try {
+    const res = await fetch(
+      "https://json-server-j1up.onrender.com/fileSystem",
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(fileSystem),
+      }
+    );
+
+    if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+
+    const updatedData = await res.json();
+  } catch (error) {
+    console.error("Lỗi cập nhật fileSystem:", error);
+  }
+}
 
 // Biến toàn cục
 let currentFile = null;
-let selectedItem = null;
+let selectedItem = fileSystem;
 let selectedItemId = null;
 let nextId = 9;
 
 // DOM elements
+const header = document.querySelector(".header");
 const fileTree = document.getElementById("fileTree");
 const currentFileName = document.getElementById("currentFileName");
 const previewFrame = document.querySelector("#preview");
@@ -1017,15 +148,38 @@ function findFileById(id, node = fileSystem) {
 
 // Sử dụng đệ quy để tìm id của cha
 // Tìm và trả về thư mục cha của một file/thư mục theo id
-function findParentById(id, node = fileSystem, parent = null) {
+function findParentById(id, node = fileSystem) {
   if (node.children) {
     for (let child of node.children) {
-      if (child.id === id) return parent;
-      const result = findParentById(id, child, node);
+      if (child.id === id) return node;
+      const result = findParentById(id, child);
       if (result) return result;
     }
   }
   return null;
+}
+
+// Sử dụng để quy để lấy ra tất cả id có trong root
+function getAllIds(node = fileSystem, ids = new Set()) {
+  if (!node) return ids;
+  ids.add(Number(node.id));
+  if (node.children) {
+    for (let child of node.children) {
+      getAllIds(child, ids);
+    }
+  }
+  return ids;
+}
+
+// Hàm tạo id ngẫu nhiên không trùng với id hiện có trong fileSystem
+function generateNewId() {
+  // Lấy tất cả id
+  const ids = getAllIds();
+  // Nếu không có thì lấy 1
+  if (ids.size === 0) return 1;
+  // Nếu có thì lấy max của tất cả id + 1
+  const maxId = Math.max(...ids);
+  return maxId + 1;
 }
 
 // Sử dụng đệ quy để render thư mục đa cấp
@@ -1088,11 +242,19 @@ function renderFileTree(node = fileSystem) {
     });
   }
 
-  li.style.paddingLeft = `16px`;
+  li.style.paddingLeft = `10px`;
+  li.addEventListener("click", () => {
+    selectedItem = node;
+    updateHeaderText();
+  });
   li.addEventListener("contextmenu", (e) => {
     e.preventDefault();
     e.stopPropagation();
     selectedItem = node;
+    updateHeaderText();
+    node.expanded = true;
+    // Cập nhật lại tree
+    refreshFileTree();
     showContextMenu(e);
   });
   return li;
@@ -1151,11 +313,12 @@ function selectFile(file) {
       if (getFileExtension(file.name) === "html") {
         updatePreview();
       } else {
-        previewFrame.srcdoc = `<pre style="padding: 0 10px; font-family: monospace; background: #f8f9fa; margin: 0; overflow: auto;">${
+        previewFrame.srcdoc = `<pre style="padding: 0 10px; font-family: monospace; margin: 0; white-space: pre-wrap; word-break: break-word;">${
           file.content || ""
         }</pre>`;
       }
     }
+    // TODO: làm thêm preview cho audio, video, ...
   }
 }
 
@@ -1171,9 +334,26 @@ function toggleFolder(item, folder) {
 function showContextMenu(e) {
   const mouseX = e.clientX;
   const mouseY = e.clientY;
+  const menuWidth = customMenu.offsetWidth;
+  const menuHeight = customMenu.offsetHeight;
 
-  customMenu.style.left = mouseX + "px";
-  customMenu.style.top = mouseY + "px";
+  let left = mouseX;
+  let top = mouseY;
+
+  const treeRect = fileTree.getBoundingClientRect();
+
+  // Nếu menu vượt quá khung bên phải
+  if (mouseX + menuWidth > treeRect.right) {
+    left = mouseX - menuWidth;
+  }
+
+  // Nếu menu vượt quá khung dưới
+  if (mouseY + menuHeight > treeRect.bottom) {
+    top = mouseY - menuHeight;
+  }
+
+  customMenu.style.left = left + "px";
+  customMenu.style.top = top + "px";
   customMenu.style.display = "block";
 }
 
@@ -1228,14 +408,25 @@ function deleteItem(id) {
   const parent = findParentById(id);
   if (!parent) return;
 
-  parent.children = parent.children.filter((child) => child.id !== id);
+  const childIndex = parent.children.findIndex(
+    (child) => Number(child.id) === Number(id)
+  );
+
+  parent.children.splice(childIndex, 1);
+
   refreshFileTree();
 
+  // Cập nhật lại trạng thái của khu Editor panel
   if (currentFile && currentFile.id === id) {
     currentFile = null;
     currentFileName.textContent = "Editor";
     editor.setValue("");
     previewFrame.srcdoc = "";
+  }
+
+  if (fileSystem.children.length < 1) {
+    selectedItem = fileSystem;
+    updateHeaderText();
   }
 }
 
@@ -1253,13 +444,13 @@ function renameItem(id, newName) {
 }
 
 // Làm mới lại giao diện cây thư mục
-function refreshFileTree() {
+function refreshFileTree(isUpdated = true) {
   fileTree.innerHTML = "";
   const rootUl = document.createElement("ul");
   rootUl.className = "file-tree-root";
 
   // Đệ quy từ root
-  if (fileSystem.children && fileSystem.children.length > 0) {
+  if (fileSystem?.children && fileSystem?.children.length > 0) {
     fileSystem.children.forEach((child) => {
       const childLi = renderFileTree(child);
       rootUl.appendChild(childLi);
@@ -1267,6 +458,8 @@ function refreshFileTree() {
   }
 
   fileTree.appendChild(rootUl);
+
+  if (isUpdated) updateFileSystem();
 }
 
 // Hàm xử lý đổi tên file/thư mục
@@ -1303,52 +496,115 @@ function activateRenameMode(li, node) {
   input.addEventListener("blur", finishRename);
 }
 
+// Hàm cập nhật header theo tên của item đang select
+function updateHeaderText() {
+  header.innerHTML = '<i class="fa-solid fa-folder"></i>';
+  header.innerHTML += selectedItem?.name ? selectedItem.name : "Explore";
+}
+
+// Hàm tạo file mới
+function newFileHandle() {
+  if (!selectedItem) return;
+  selectedItem.expanded = true;
+  refreshFileTree();
+  const parentNode = selectedItem.children
+    ? selectedItem
+    : findParentById(selectedItem.id);
+
+  const newId = generateNewId();
+  const defaultName = `new file(${newId}).txt`;
+
+  const newFile = {
+    id: newId,
+    name: defaultName,
+    content: "",
+  };
+
+  parentNode.children = parentNode.children || [];
+  parentNode.children.push(newFile);
+
+  refreshFileTree();
+
+  // Tìm lại thẻ <li> của file mới được thêm để kích hoạt rename
+  setTimeout(() => {
+    const li = document.querySelector(`.file-item[data-id="${newId}"]`);
+    if (li) {
+      activateRenameMode(li, newFile);
+    }
+  }, 0); // delay 1 chút để DOM cập nhật xong
+  hideContextMenu();
+}
+
+// Hàm tạo folder mới
+function newFolderHandle() {
+  if (!selectedItem) return;
+
+  selectedItem.expanded = true;
+  refreshFileTree();
+
+  const parentNode = selectedItem.children
+    ? selectedItem
+    : findParentById(selectedItem.id);
+
+  const newId = generateNewId();
+  const defaultName = `new folder(${newId})`;
+
+  const newFolder = {
+    id: newId,
+    name: defaultName,
+    children: [],
+  };
+
+  parentNode.children = parentNode.children || [];
+  parentNode.children.push(newFolder);
+
+  refreshFileTree();
+
+  // Tìm lại thẻ <li> của file mới được thêm để kích hoạt rename
+  setTimeout(() => {
+    const li = document.querySelector(`.file-item[data-id="${newId}"]`);
+    if (li) {
+      activateRenameMode(li, newFolder);
+    }
+  }, 0); // delay 1 chút để DOM cập nhật xong
+  hideContextMenu();
+}
+
 // Event
 // Khi có sự kiện click thì ẩn context menu
-document.addEventListener("click", hideContextMenu);
+document.addEventListener("click", () => {
+  hideContextMenu;
+});
+
+// Khi nhấn vào cùng bên ngoài thì selec root
+fileTree.addEventListener("click", () => {
+  selectedItem = fileSystem;
+  updateHeaderText();
+});
+// Khi chuột phải vào vùng bên ngoài thì hiển thị context cho root
+fileTree.addEventListener("contextmenu", (e) => {
+  e.preventDefault();
+  e.stopPropagation();
+  selectedItem = fileSystem;
+  updateHeaderText();
+  showContextMenu(e);
+});
 
 // Sự kiện với thanh toolbar
-newFileBtn.addEventListener("click", () => {
-  const name = prompt("Enter file name:");
-  if (name) {
-    createFile(name);
-  }
-});
+// Tạo file mới
+newFileBtn.addEventListener("click", newFileHandle);
 
 // Sự kiện nhấn nút tạo thư mục mới
-newFolderBtn.addEventListener("click", () => {
-  const name = prompt("Enter folder name:");
-  if (name) {
-    createFolder(name);
-  }
-});
+newFolderBtn.addEventListener("click", newFolderHandle);
 
 // Sự kiện nhấn nút refresh
 refreshBtn.addEventListener("click", refreshFileTree);
 
 // Sự kiện nhấn nút tạo file mới trong context menu
-newFileMenu.addEventListener("click", () => {
-  const name = prompt("Enter file name:");
-  if (name && selectedItem) {
-    const parentId = selectedItem.children
-      ? selectedItem.id
-      : findParentById(selectedItem.id).id;
-    createFile(name, parentId);
-  }
-  hideContextMenu();
-});
+newFileMenu.addEventListener("click", newFileHandle);
 
 // Sự kiện nhấn nút tạo thư mục mới trong context menu
-newFolderMenu.addEventListener("click", () => {
-  const name = prompt("Enter folder name:");
-  if (name && selectedItem) {
-    const parentId = selectedItem.children
-      ? selectedItem.id
-      : findParentById(selectedItem.id).id;
-    createFolder(name, parentId);
-  }
-  hideContextMenu();
-});
+newFolderMenu.addEventListener("click", newFolderHandle);
 
 // Sự kiện đổi tên
 renameMenu.addEventListener("click", () => {
@@ -1379,4 +635,4 @@ editor.on("change", () => {
 });
 
 // khởi tạo
-refreshFileTree();
+fetchFileSystem();
