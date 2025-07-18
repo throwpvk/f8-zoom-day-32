@@ -26,6 +26,8 @@ async function fetchFileSystem() {
   } catch (error) {
     console.error("Lỗi fetch fileSystem:", error);
   } finally {
+    resetExpanded();
+    updateFileSystem();
     refreshFileTree(false);
     updateHeaderText();
   }
@@ -77,12 +79,6 @@ const renameInput = document.getElementById("renameInput");
 const newFileBtn = document.getElementById("newFile");
 const newFolderBtn = document.getElementById("newFolder");
 const refreshBtn = document.getElementById("refreshExplorer");
-
-// Context menu items
-const newFileMenu = document.getElementById("newFileMenu");
-const newFolderMenu = document.getElementById("newFolderMenu");
-const renameMenu = document.getElementById("renameMenu");
-const deleteMenu = document.getElementById("deleteMenu");
 
 // Hàn lấy phần mở rộng (đuôi) của tên file, ví dụ: 'txt', 'jpg', 'js'
 function getFileExtension(filename) {
@@ -180,6 +176,21 @@ function generateNewId() {
   // Nếu có thì lấy max của tất cả id + 1
   const maxId = Math.max(...ids);
   return maxId + 1;
+}
+
+// Hàm dùng đệ quy để reset expanded của tất cả item
+function resetExpanded(node = fileSystem) {
+  if (!node) return;
+
+  // Reset giá trị expanded
+  node.expanded = false;
+
+  // Nếu có con thì gọi đệ quy
+  if (node.children) {
+    for (let child of node.children) {
+      resetExpanded(child);
+    }
+  }
 }
 
 // Sử dụng đệ quy để render thư mục đa cấp
@@ -355,7 +366,7 @@ function toggleFolder(item, folder) {
 }
 
 // Hiện menu chuột phải (context menu) tại vị trí chuột
-function showContextMenu(e) {
+function showContextMenu(e, isRoot = false) {
   const mouseX = e.clientX;
   const mouseY = e.clientY;
   const menuWidth = customMenu.offsetWidth;
@@ -376,13 +387,34 @@ function showContextMenu(e) {
     top = mouseY - menuHeight;
   }
 
+  customMenu.innerHTML = `
+        <ul>
+        <li id="newFileMenu">
+          <i class="fa-solid fa-file-medical"></i> New File
+        </li>
+        <li id="newFolderMenu">
+          <i class="fa-solid fa-folder-plus"></i> New Folder
+        </li>
+        
+        ${
+          !isRoot
+            ? '<li class="separator"></li>' +
+              '<li id="deleteMenu"><i class="fa-solid fa-trash"></i> Delete</li>' +
+              '<li id="renameMenu"><i class="fa-solid fa-edit"></i> Rename</li>'
+            : ""
+        }
+      </ul>`;
+
   customMenu.style.left = left + "px";
   customMenu.style.top = top + "px";
   customMenu.style.display = "block";
+
+  bindContextMenuEvent(isRoot);
 }
 
 // Ẩn menu chuột phải
 function hideContextMenu() {
+  customMenu.innerHTML = "";
   customMenu.style.display = "none";
 }
 
@@ -595,6 +627,47 @@ function newFolderHandle() {
   hideContextMenu();
 }
 
+function bindContextMenuEvent(isRoot) {
+  // Context menu items
+  const newFileMenu = document.getElementById("newFileMenu");
+  const newFolderMenu = document.getElementById("newFolderMenu");
+
+  // Sự kiện nhấn nút tạo file mới trong context menu
+  newFileMenu.addEventListener("click", newFileHandle);
+
+  // Sự kiện nhấn nút tạo thư mục mới trong context menu
+  newFolderMenu.addEventListener("click", newFolderHandle);
+
+  if (!isRoot) {
+    const renameMenu = document.getElementById("renameMenu");
+    const deleteMenu = document.getElementById("deleteMenu");
+
+    // Sự kiện đổi tên
+    renameMenu.addEventListener("click", () => {
+      if (selectedItem) {
+        const li = document.querySelector(`[data-id="${selectedItem.id}"]`);
+        activateRenameMode(li, selectedItem);
+      }
+      hideContextMenu();
+    });
+
+    // Sự kiện nhấn nút xóa
+    deleteMenu.addEventListener("click", () => {
+      if (
+        selectedItem &&
+        confirm(
+          `Bạn có chắc muốn xóa ${
+            selectedItem.children ? "Thư mục" : "File"
+          } "${selectedItem.name}"?`
+        )
+      ) {
+        deleteItem(selectedItem.id);
+      }
+      hideContextMenu();
+    });
+  }
+}
+
 // Event
 // Khi có sự kiện click thì ẩn context menu
 document.addEventListener("click", () => {
@@ -612,7 +685,7 @@ fileTree.addEventListener("contextmenu", (e) => {
   e.stopPropagation();
   selectedItem = fileSystem;
   updateHeaderText();
-  showContextMenu(e);
+  showContextMenu(e, true);
 });
 
 // Sự kiện với thanh toolbar
@@ -624,36 +697,6 @@ newFolderBtn.addEventListener("click", newFolderHandle);
 
 // Sự kiện nhấn nút refresh
 refreshBtn.addEventListener("click", refreshFileTree);
-
-// Sự kiện nhấn nút tạo file mới trong context menu
-newFileMenu.addEventListener("click", newFileHandle);
-
-// Sự kiện nhấn nút tạo thư mục mới trong context menu
-newFolderMenu.addEventListener("click", newFolderHandle);
-
-// Sự kiện đổi tên
-renameMenu.addEventListener("click", () => {
-  if (selectedItem) {
-    const li = document.querySelector(`[data-id="${selectedItem.id}"]`);
-    activateRenameMode(li, selectedItem);
-  }
-  hideContextMenu();
-});
-
-// Sự kiện nhấn nút xóa
-deleteMenu.addEventListener("click", () => {
-  if (
-    selectedItem &&
-    confirm(
-      `Bạn có chắc muốn xóa ${selectedItem.children ? "Thư mục" : "File"} "${
-        selectedItem.name
-      }"?`
-    )
-  ) {
-    deleteItem(selectedItem.id);
-  }
-  hideContextMenu();
-});
 
 // cập nhật preview khi có thay đổi trong editor, và tự động lưu
 editor.on("change", () => {
