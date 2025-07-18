@@ -619,7 +619,11 @@ renameMenu.addEventListener("click", () => {
 deleteMenu.addEventListener("click", () => {
   if (
     selectedItem &&
-    confirm(`Are you sure you want to delete "${selectedItem.name}"?`)
+    confirm(
+      `Bạn có chắc muốn xóa ${selectedItem.children ? "Thư mục" : "File"} "${
+        selectedItem.name
+      }"?`
+    )
   ) {
     deleteItem(selectedItem.id);
   }
